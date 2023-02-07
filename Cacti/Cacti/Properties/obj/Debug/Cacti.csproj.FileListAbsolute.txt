@@ -1,0 +1,11 @@
+C:\Users\student\source\repos\Cacti\Cacti\bin\Debug\Cacti.exe.config
+C:\Users\student\source\repos\Cacti\Cacti\bin\Debug\Cacti.exe
+C:\Users\student\source\repos\Cacti\Cacti\bin\Debug\Cacti.pdb
+C:\Users\student\source\repos\Cacti\Cacti\obj\Debug\Cacti.csprojAssemblyReference.cache
+C:\Users\student\source\repos\Cacti\Cacti\obj\Debug\Cacti.WelcomePage.resources
+C:\Users\student\source\repos\Cacti\Cacti\obj\Debug\Cacti.Properties.Resources.resources
+C:\Users\student\source\repos\Cacti\Cacti\obj\Debug\Cacti.csproj.GenerateResource.cache
+C:\Users\student\source\repos\Cacti\Cacti\obj\Debug\Cacti.csproj.CoreCompileInputs.cache
+C:\Users\student\source\repos\Cacti\Cacti\obj\Debug\Cacti.exe
+C:\Users\student\source\repos\Cacti\Cacti\obj\Debug\Cacti.pdb
+C:\Users\student\source\repos\Cacti\Cacti\obj\Debug\Cacti.SignIn.resources

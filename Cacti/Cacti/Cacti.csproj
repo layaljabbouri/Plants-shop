@@ -1,0 +1,663 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7FA2DEBC-5FF5-4E78-BA3A-8E88E4AA0822}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Cacti</RootNamespace>
+    <AssemblyName>Cacti</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu.Licensing, Version=3.2.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.1.5.3, Version=1.5.3.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuCheckBox, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuCheckBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuCircleProgress, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuCircleProgress.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuColorTransition, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuColorTransition.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDatePicker, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDropdown, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuFormDock, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuFormDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuGauge, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuGauge.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuGradientPanel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuGradientPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuGroupBox, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuGroupBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuImageButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuImageButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuLabel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuPages.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPanel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuProgressBar, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuProgressBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuRadioButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuRating, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuRating.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuScrollBar, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuScrollBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSeparator, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuSeparator.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuShadowPanel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuShadowPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuShapes, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuShapes.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSlider, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuSlider.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSnackbar, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuSnackbar.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuTextbox, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuToggleSwitch, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuToggleSwitch.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuToolTip, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuToolTip.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuTransition, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuTransition.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuUserControl, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.BunifuUserControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.Deprecated, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bunifu.UI.WinForms.4.1.1\lib\Bunifu.UI.WinForms.Deprecated.dll</HintPath>
+    </Reference>
+    <Reference Include="CircularProgressBar, Version=2.8.0.16, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CircularProgressBar.2.8.0.16\lib\net40\CircularProgressBar.dll</HintPath>
+    </Reference>
+    <Reference Include="CustomControl_Product">
+      <HintPath>..\..\CustomControl_Product\CustomControl_Product\bin\Debug\CustomControl_Product.dll</HintPath>
+    </Reference>
+    <Reference Include="FlatButton">
+      <HintPath>..\..\..\..\Desktop\Classes\FlatButton.dll</HintPath>
+    </Reference>
+    <Reference Include="JGradient Panel">
+      <HintPath>..\..\..\..\Desktop\Classes\JGradient Panel.dll</HintPath>
+    </Reference>
+    <Reference Include="JImageButton">
+      <HintPath>..\..\..\..\Desktop\Classes\JImageButton.dll</HintPath>
+    </Reference>
+    <Reference Include="JMaterialTextbox">
+      <HintPath>..\..\..\..\Desktop\Classes\JMaterialTextbox.dll</HintPath>
+    </Reference>
+    <Reference Include="JMetroTextBox">
+      <HintPath>..\..\..\..\Desktop\Classes\JMetroTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="JTextBox">
+      <HintPath>..\..\..\..\Desktop\Classes\JTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="JTextBox2">
+      <HintPath>..\..\..\..\Desktop\Classes\JTextBox2.dll</HintPath>
+    </Reference>
+    <Reference Include="JThinButton">
+      <HintPath>..\..\..\..\Desktop\Classes\JThinButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WinFormAnimation, Version=1.6.0.4, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutUs.Designer.cs">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account.Designer.cs">
+      <DependentUpon>Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.cs" />
+    <Compile Include="Button_WOC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Cacti.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cacti.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Cart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cart.Designer.cs">
+      <DependentUpon>Cart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeAddressOrPhoneNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeAddressOrPhoneNumber.Designer.cs">
+      <DependentUpon>ChangeAddressOrPhoneNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeEmailOrPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeEmailOrPassword.Designer.cs">
+      <DependentUpon>ChangeEmailOrPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CircularPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DictionaryExtension.cs" />
+    <Compile Include="EditPlants.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditPlants.Designer.cs">
+      <DependentUpon>EditPlants.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditStaff.Designer.cs">
+      <DependentUpon>EditStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilterPanelExtension.cs" />
+    <Compile Include="HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Item.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="Order_Plant.cs" />
+    <Compile Include="Plant.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Purchases.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchases.Designer.cs">
+      <DependentUpon>Purchases.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoundedTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shop.Designer.cs">
+      <DependentUpon>Shop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignIn.Designer.cs">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignUp.Designer.cs">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Staff.cs" />
+    <Compile Include="TotalOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TotalOrders.Designer.cs">
+      <DependentUpon>TotalOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrackOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrackOrder.Designer.cs">
+      <DependentUpon>TrackOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Worker.cs" />
+    <Compile Include="WorkerHomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkerHomePage.Designer.cs">
+      <DependentUpon>WorkerHomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WelcomePage.Designer.cs">
+      <DependentUpon>WelcomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkerProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkerProfile.Designer.cs">
+      <DependentUpon>WorkerProfile.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AboutUs.resx">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account.resx">
+      <DependentUpon>Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cart.resx">
+      <DependentUpon>Cart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeAddressOrPhoneNumber.resx">
+      <DependentUpon>ChangeAddressOrPhoneNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeEmailOrPassword.resx">
+      <DependentUpon>ChangeEmailOrPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditPlants.resx">
+      <DependentUpon>EditPlants.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditStaff.resx">
+      <DependentUpon>EditStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purchases.resx">
+      <DependentUpon>Purchases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shop.resx">
+      <DependentUpon>Shop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignIn.resx">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignUp.resx">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TotalOrders.resx">
+      <DependentUpon>TotalOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrackOrder.resx">
+      <DependentUpon>TrackOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkerHomePage.resx">
+      <DependentUpon>WorkerHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WelcomePage.resx">
+      <DependentUpon>WelcomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkerProfile.resx">
+      <DependentUpon>WorkerProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Cacti.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Cacti.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Cacti.dbml.layout">
+      <DependentUpon>Cacti.dbml</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cactiLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\consultation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ContactUs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping_cart_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Homee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_80px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cactiLogo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\twitter_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\instagram_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\facebook_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activity_history_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\discount_finder_70px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_70px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\discount_finder_60px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\discount_finder_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\discount_finder_50px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_45px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buy_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phone_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aboutUs_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\track_order_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Purchases_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchGreen_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchGreen_20px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filter_20px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\multiply_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about_80px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about_500px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about_300px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next_page_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next_page_35px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_shopping_cart_35px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account_70px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_80px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\more_info_80px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\discount_finder_70px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\discount_finder_60px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employees.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\staffs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Staff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bill1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Billl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\billll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\billlll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bill..png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prof.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logouut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove_70px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_new_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_new_35px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_new_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_user_group_woman_man_80px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_user_group_woman_man_120px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_administrator_105px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove_administrator_105px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\microsoft_admin_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\verified_account_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_100px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_100px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_90px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove_90px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove_70px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_70px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_70px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\potted_plant_70px.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

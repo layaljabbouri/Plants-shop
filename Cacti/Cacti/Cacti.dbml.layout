@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="CactiDataClass">
+  <DataContextMoniker Name="/CactiDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ff73984b-e579-4a4b-b940-615346e15a30" absoluteBounds="3.5, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/CactiDataContext/Staff" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1d49f1cc-1d4e-41e8-8ace-ddebeaeaea64" absoluteBounds="3.515, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cadadb17-d550-42f9-b431-f0c42dd2f3fe" absoluteBounds="3.75, 2.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/CactiDataContext/Plant" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2bd218da-320a-4890-9f0b-e7887fec3340" absoluteBounds="3.765, 2.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5a60907d-dc6b-4c45-bf18-dce1377a5d13" absoluteBounds="0.5, 2.375, 2, 1.9631982421875">
+      <DataClassMoniker Name="/CactiDataContext/Client" />
+      <nestedChildShapes>
+        <elementListCompartment Id="adf30e88-cf81-4242-9ec5-a14af0247484" absoluteBounds="0.51500000000000012, 2.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cf99c664-2fbb-4fa9-bdc1-69e6f0a91daf" absoluteBounds="0.625, 0.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/CactiDataContext/Admin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0ba57d8e-b7e8-46af-bd67-d131bb950c9d" absoluteBounds="0.64000000000000012, 1.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ae2d8907-e824-4e74-bee7-698750771c69" absoluteBounds="0.625, 4.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/CactiDataContext/Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e4c1577f-9140-4baa-a5a6-000c10b5c8e6" absoluteBounds="0.64000000000000012, 5.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5625 : 4.3381982421875); (1.5625 : 4.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CactiDataContext/Client/Client_Order" />
+      <nodes>
+        <classShapeMoniker Id="5a60907d-dc6b-4c45-bf18-dce1377a5d13" />
+        <classShapeMoniker Id="ae2d8907-e824-4e74-bee7-698750771c69" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="00b91421-5c5f-4ed6-98e6-a0866d585df4" absoluteBounds="3.875, 4.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/CactiDataContext/Order_Plant" />
+      <nestedChildShapes>
+        <elementListCompartment Id="897d0c39-7e83-4e98-871e-a345cac72828" absoluteBounds="3.8899999999999997, 4.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.625 : 5.35179768880208); (3.875 : 5.35179768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CactiDataContext/Order/Order_Order_Plant" />
+      <nodes>
+        <classShapeMoniker Id="ae2d8907-e824-4e74-bee7-698750771c69" />
+        <classShapeMoniker Id="00b91421-5c5f-4ed6-98e6-a0866d585df4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.8125 : 4.07859537760417); (4.8125 : 4.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CactiDataContext/Plant/Plant_Order_Plant" />
+      <nodes>
+        <classShapeMoniker Id="cadadb17-d550-42f9-b431-f0c42dd2f3fe" />
+        <classShapeMoniker Id="00b91421-5c5f-4ed6-98e6-a0866d585df4" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
